@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <title> My First React App </title>
-    </head>
+<html lang="en">
 
-    <body>
-        <p> Hello world!</p>
-    </body>
+<head>
+    <title> My First React App </title>
+</head>
+
+<body>
+    <!-- Declare a container for our UI -->
+    <div id="app"></div>
+    <!-- Load three libraries: react, react-dom, & babel-core. The first two render React
+    into the DOM, and the third enables JSX & ES6 </!-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <!-- The rest of our code. Use text/babel to format to enable ES6. Babel is a compiler that allows us to
+    use the latest generation of JavaScript -->
+    <script type="text/babel">
+        // Create a React component. Every component
+        class Greeting extends React.Component {
+            render() {
+                return (
+                <div>
+                    <h1> Hello World!</h1>
+                </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <Greeting />, document.getElementById('app')
+        );
+    </script>
+</body>
 
 </html>
