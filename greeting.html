@@ -5,10 +5,10 @@
 <head>
     <title> My First React App </title>
 </head>
-
 <body>
     <!-- Declare a container for our UI -->
     <div id="app"></div>
+    <div id="container"></div>
     <!-- Load three libraries: react, react-dom, & babel-core. The first two render React
     into the DOM, and the third enables JSX & ES6 </!-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
@@ -17,7 +17,7 @@
     <!-- The rest of our code. Use text/babel to format to enable ES6. Babel is a compiler that allows us to
     use the latest generation of JavaScript -->
     <script type="text/babel">
-        // Create a React component. Every component
+        // Create a React component. Call its built-in 'render()' function to return a single root element.
         class Greeting extends React.Component {
             render() {
                 return (
@@ -27,8 +27,42 @@
                 );
             }
         }
+        // To render a component, call 'ReactDOM.rendert()'.
+        // First argument is component we want to render.
+        // Second argument is the HTML element in which to render our component.
+        // This will ultimately render our Greeting component within the <div id="app"></div>.
         ReactDOM.render(
             <Greeting />, document.getElementById('app')
+        );
+
+/////////////////////////////////////
+////// Assignment - Reactf 2.3
+
+        function UserAvatar(props) {
+            return(
+                <div className='userImage'>
+                    <img
+                        src={props.imageUrl}
+                        alt={props.imageName}
+                    />
+                    <h1>{props.name}</h1>
+                </div>
+            );
+        }
+
+        const avatar = {
+            imageUrl: 'https://i.imgur.com/0hA7XT1.jpg',
+            alt: 'profile picture',
+            name: 'Jonathan Kestler'
+        };
+
+        ReactDOM.render(
+            <UserAvatar
+                imageUrl={avatar.imageUrl}
+                imageName={avatar.alt}
+                name={avatar.name}
+            />,
+            document.getElementById('container')
         );
     </script>
 </body>
