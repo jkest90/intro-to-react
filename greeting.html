@@ -22,7 +22,8 @@
             render() {
                 return (
                 <div>
-                    <h1> Hello World!</h1>
+                    // <h1> Hello World!</h1>
+                    <h1> Hello, {this.props.name}! </h1>
                 </div>
                 );
             }
@@ -32,22 +33,60 @@
         // Second argument is the HTML element in which to render our component.
         // This will ultimately render our Greeting component within the <div id="app"></div>.
         ReactDOM.render(
-            <Greeting />, document.getElementById('app')
+            <Greeting name="Bloc Students"/>, document.getElementById('app')
         );
 
 /////////////////////////////////////
-////// Assignment - Reactf 2.3
+////// Assignment - React 2.3
 
-        function UserAvatar(props) {
-            return(
-                <div className='userImage'>
-                    <img
-                        src={props.imageUrl}
-                        alt={props.imageName}
-                    />
-                    <h1>{props.name}</h1>
-                </div>
-            );
+        // function UserAvatar(props) {
+        //     return(
+        //         <div className='userImage'>
+        //             <img
+        //                 src={props.imageUrl}
+        //                 alt={props.imageName}
+        //             />
+        //             <h1>{props.name}</h1>
+        //         </div>
+        //     );
+        // }
+        //
+        // const avatar = {
+        //     imageUrl: 'https://i.imgur.com/0hA7XT1.jpg',
+        //     alt: 'profile picture',
+        //     name: 'Jonathan Kestler'
+        // };
+        //
+        // ReactDOM.render(
+        //     <UserAvatar
+        //         imageUrl={avatar.imageUrl}
+        //         imageName={avatar.alt}
+        //         name={avatar.name}
+        //     />,
+        //     document.getElementById('container')
+        // );
+
+/////////////////////////////////////
+////// Assignment - React 2.4
+
+        class UserAvatar extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {date: new Date()}
+            }
+
+            render() {
+                return (
+                    <div className='userImage'>
+                        <img
+                            src={this.props.imageUrl}
+                            alt={this.props.imageName}
+                        />
+                        <h2>{this.props.name}</h2>
+                        <h3>{this.state.date.toLocaleDateString()}</h3>
+                    </div>
+                );
+            }
         }
 
         const avatar = {
